@@ -10,7 +10,10 @@ module.exports = function (app) {
 
 
     app.get('/', function (req, res) {
-        
+		//res.locals.context = {
+		//	locality: 'zh-CN'
+		//};
+		//console.log('res.locals = ',res.locals);
         res.render('index', model);
         
     });
