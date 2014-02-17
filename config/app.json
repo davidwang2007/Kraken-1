@@ -40,6 +40,10 @@
      "view cache": true,
      "view engine": "js",
      "views": "path:./.build/templates"
+ },
+ "databaseConfig":{
+	"host":"localhost",
+	"database":"kraken-1-HelloWorld"
  }
 
 }

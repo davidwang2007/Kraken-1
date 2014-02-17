@@ -1,12 +1,23 @@
+/*
+ * kraken learning hello world project
+ * using mongodb to persist the entities
+ * author: David Wang
+ * email: davidwang2006@outlook.com
+ * date: 2014年 02月 17日 星期一 22:11:00 CST
+ * kraken js structure: http://www.cnblogs.com/yupeng/p/3484189.html
+ */
 'use strict';
 
 
 var kraken = require('kraken-js'),
+	db = require('./lib/database'),
+	express = require('express'),
     app = {};
 
 
 app.configure = function configure(nconf, next) {
     // Async method run on startup.
+	db.config(nconf.get('databaseConfig'));
     next(null);
 };
 
@@ -35,6 +46,7 @@ app.requestBeforeRoute = function requestBeforeRoute(server) {
 
 		next();
 	});
+	server.use(express.methodOverride());
 };
 
 
