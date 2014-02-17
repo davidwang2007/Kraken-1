@@ -10,8 +10,9 @@
 
 
 var kraken = require('kraken-js'),
-	db = require('./lib/database'),
 	express = require('express'),
+	db = require('./lib/database'),
+	language = require('./lib/language'),
     app = {};
 
 
@@ -34,6 +35,7 @@ app.requestStart = function requestStart(server) {
 app.requestBeforeRoute = function requestBeforeRoute(server) {
     // Run before any routes have been added.
 	// set locality to use the corrent properties file
+	/* We use the lib/languages to solve the problem
 	server.use(function(req,res,next){
 		console.log('------ request before route');
 		//console.log(req.headers['accept-language']);
@@ -46,7 +48,9 @@ app.requestBeforeRoute = function requestBeforeRoute(server) {
 
 		next();
 	});
+	*/
 	server.use(express.methodOverride());
+	server.use(language());
 };
 
 
