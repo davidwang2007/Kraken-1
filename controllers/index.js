@@ -9,11 +9,12 @@ module.exports = function (app) {
     var model = new IndexModel();
 
 
-    app.get('/', function (req, res) {
+    app.get('/test', function (req, res) {
 		//res.locals.context = {
 		//	locality: 'zh-CN'
 		//};
 		//console.log('res.locals = ',res.locals);
+		console.log(res.locals);
         res.render('index', model);
         
     });

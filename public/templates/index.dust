@@ -2,4 +2,8 @@
 
 {<body}
     <h1>{@pre type="content" key="greeting"/}</h1>
+	<h2>{{_csrf}}</h2>
+	<h2>{_csrf}</h2>
+	<h3>{{hello}}</h3>
+	<h3>{~lb}{~lb}hello{~rb}{~rb}</h3>
 {/body}

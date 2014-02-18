@@ -6,7 +6,7 @@
 'use strict';
 var mongoose = require('mongoose');
 
-var userSchema = mongoose.schema({
+var userSchema = new mongoose.Schema({
 	username: String,
 	password: String,
 	age: {type: Number, default:18},
