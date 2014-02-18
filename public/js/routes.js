@@ -14,6 +14,9 @@ define(['angular','app'],function(angular,app){
 		}).when('/user-update',{
 			templateUrl: 'html/user-update.html',
 			controller: 'user-update'
-		}).otherwise({redirectTo:'/'});	
+		}).when('/',{templateUrl:'html/welcome.html'})
+		.otherwise({redirectTo:'/'});	
 	}]);
+
+	//$locationProvider.html5Mode(true).hashPrefix('!');
 });
