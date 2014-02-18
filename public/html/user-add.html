@@ -1,4 +1,4 @@
-<form class="form-horizontal" role="form" ng-submit="doSubmit">
+<form class="form-horizontal" role="form" ng-submit="doSubmit()">
 	<div class="form-group">
 		<label for="" class="col-sm-2 control-label">USER NAME:</label>
 		<div class="col-sm-10">
@@ -26,6 +26,7 @@
 	<div class="form-group">
 		<input type="submit" class="btn btn-success" value="Submit"/>
 		<input type="reset" class="btn" value="Reset"/>
+		<input type="button" class="btn btn-warning" value="Back2List" ng-click="doBack()"/>
 	</div>
 
 </form>

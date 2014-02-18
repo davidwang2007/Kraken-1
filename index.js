@@ -49,8 +49,8 @@ app.requestBeforeRoute = function requestBeforeRoute(server) {
 		next();
 	});
 	*/
-	server.use(express.csrf());
-	server.use(express.methodOverride());
+	//server.use(express.csrf());
+	//server.use(express.methodOverride());
 	server.use(language());
 };
 

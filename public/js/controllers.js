@@ -12,11 +12,19 @@ define(['angular','services'],function(angular,services){
 					$scope.users = data;	
 				});
 			}])
-			.controller('user-add',['$scope',function($scope){
+			.controller('user-add',['$scope','$location','$http',function($scope,$location,$http){
 				console.debug('user-add controler initializing..');
 				$scope.doSubmit = function(){
-					console.log('Info');
+					console.log('doSubmit, user = ',$scope.user);
+					$http.post('/user',$scope.user,function(data){
+						console.log('submit user, server response -> ',data);
+						$location.path('users-list');
+					});
 				};		
+				$scope.doBack = function(){
+					console.log('$location.path = ',$location.path());
+					$location.path('users-list');
+				};
 			}])
 			.controller('user-update',['$scope',function($scope){}]);
 });
