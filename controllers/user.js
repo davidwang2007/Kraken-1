@@ -9,13 +9,13 @@ var User= require('../models/user');
 
 module.exports = function(app){
 	app.get('/user/:id',function(req,res,next){
-		User.findById(req.param('id'),function(err,user){
+		User.findById(req.param('id'),'-password',function(err,user){
 			if(err) {return next(err);}
 			res.send(user);
 		});			
 	});
 	app.get('/user',function(req,res,next){
-		User.find(function(err,users){
+		User.find({},'-password',function(err,users){
 			if(err) {return next(err);}
 			res.send(users);
 		});			

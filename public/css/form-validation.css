@@ -1,0 +1,26 @@
+@charset "UTF-8";
+form input,form textarea{
+	padding-right:30px !important;
+}
+form input.ng-invalid,form textarea.ng-invalid{
+	background: #fff url(/images/red_asterisk.png) no-repeat 98% center;
+}
+form input:focus.ng-invalid,form textarea:focus.ng-invalid{
+	background: #fff url(/images/invalid.png) no-repeat 98% center;
+    box-shadow: 0 0 5px #d45252;
+    border-color: #b03535;
+}
+
+form input.ng-dirty.ng-valid.ng-valid-required,form textarea.ng-dirty.ng-valid.ng-valid-required{
+	 background: #fff url(/images/valid.png) no-repeat 98% center;
+     box-shadow: 0 0 5px #5cd053;
+     border-color: #28921f;
+}
+/**
+ * Here removing the spin button on the chrome select element
+ * */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}

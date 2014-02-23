@@ -3,15 +3,16 @@
 		<td>USERNAME</td>	
 		<td>AGE</td>	
 		<td>E-MAIL</td>	
-		<td>PASSWORD</td>	
 		<td>#</td>
 	</tr>
 	<tr ng-repeat="user in users">
 		<td>{{user.username}}</td>
 		<td>{{user.age}}</td>
 		<td>{{user.email}}</td>
-		<td>{{user.password}}</td>
-		<td><a ng-href="#/user-update/{{user._id}}">Modify</a></td>
+		<td>
+			<a ng-href="#/user-update/{{user._id}}">Modify</a>
+			<a ng-click="deleteUser($index)">Delete</a>
+		</td>
 	</tr>
 </table>
 <div class="alert alert-info" ng-show="!users.length">
