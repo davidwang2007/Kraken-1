@@ -14,7 +14,7 @@ module.exports = function(app){
 			res.send(user);
 		});			
 	});
-	app.get('/users',function(req,res,next){
+	app.get('/user',function(req,res,next){
 		User.find(function(err,users){
 			if(err) {return next(err);}
 			res.send(users);
@@ -28,6 +28,14 @@ module.exports = function(app){
 			}
 			res.send(user);
 		});
+	});
+	app.put('/user/:id',function(req,res,next){
+		User.findByIdAndUpdate(req.param('id'),req.body,function(err,user){
+			if(err){
+				return next(err);
+			}	
+			res.send(user);
+		});	
 	});
 	app.delete('/user/:id',function(res,req,next){
 		User.findByIdAndRemove(res.param('id'),function(err){

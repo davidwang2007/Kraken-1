@@ -1,0 +1,21 @@
+<table class="table table-hover" ng-show="users.length">
+	<tr>
+		<td>USERNAME</td>	
+		<td>AGE</td>	
+		<td>E-MAIL</td>	
+		<td>PASSWORD</td>	
+	</tr>
+	<tr ng-repeat="user in users">
+		<td>{{user.username}}</td>
+		<td>{{user.age}}</td>
+		<td>{{user.email}}</td>
+		<td>{{user.password}}</td>
+	</tr>
+</table>
+<div class="alert alert-info" ng-show="!users.length">
+	No User....
+</div>
+
+<div>
+	<a class="btn btn-success" href="#user-add">ADD USER</a>
+</div>

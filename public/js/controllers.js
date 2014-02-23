@@ -7,24 +7,26 @@ define(['angular','services'],function(angular,services){
 	'use strict';
 	/* Controllers */
 	return angular.module('myApp.controllers',['myApp.services','ngResource'])
-			.controller('users-list',['$scope','version','$http',function($scope,version,$http){
-				$http.get('users').success(function(data){
-					$scope.users = data;	
-				});
+			.controller('user-list',['$scope','version','User',function($scope,version,User){
+				$scope.users = User.query();
 			}])
-			.controller('user-add',['$scope','$location','$http',function($scope,$location,$http){
+			.controller('user-add',['$scope','$location','User',function($scope,$location,User){
 				console.debug('user-add controler initializing..');
-				$scope.doSubmit = function(){
+				$scope.doSave = function(){
 					console.log('doSubmit, user = ',$scope.user);
-					$http.post('/user',$scope.user,function(data){
-						console.log('submit user, server response -> ',data);
-						$location.path('users-list');
-					});
+					new User($scope.user).$save();
+					$location.path('user-list');
 				};		
 				$scope.doBack = function(){
 					console.log('$location.path = ',$location.path());
-					$location.path('users-list');
+					$location.path('user-list');
 				};
 			}])
-			.controller('user-update',['$scope',function($scope){}]);
+			.controller('user-update',['$scope','$routeParams','User',function($scope,$routeParams,User){
+				$scope.user = User.get({id:$routeParams.id});
+				$scope.doUpdate = function(){
+					$scope.user.$update({id:$routeParams.id});
+					$location.path('user-list');
+				};
+			}]);
 });

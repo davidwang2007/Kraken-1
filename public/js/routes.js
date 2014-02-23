@@ -5,9 +5,9 @@
 define(['angular','app'],function(angular,app){
 	'use strict';
 	return app.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
-		$routeProvider.when('/users-list',{
-			templateUrl: 'html/users-list.html',
-			controller: 'users-list'
+		$routeProvider.when('/user-list',{
+			templateUrl: 'html/user-list.html',
+			controller: 'user-list'
 		}).when('/user-add',{
 			templateUrl: 'html/user-add.html',
 			controller: 'user-add'
