@@ -21,7 +21,7 @@ module.exports = function(app){
 		});			
 	});
 	app.post('/user',function(req,res,next){
-		new User(utils.merge({},req.body)).save(function(err,user){
+		new User(req.body).save(function(err,user){
 			console.log('Add new user success! ', user);		
 			if(err){
 				return next(err);	
@@ -30,6 +30,10 @@ module.exports = function(app){
 		});
 	});
 	app.put('/user/:id',function(req,res,next){
+		Object.keys(req.body).forEach(function(key){
+			//delete the properties start with _
+			key.indexOf('_') === 0 && delete req.body[key];
+		});
 		User.findByIdAndUpdate(req.param('id'),req.body,function(err,user){
 			if(err){
 				return next(err);

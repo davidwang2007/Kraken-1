@@ -11,7 +11,7 @@ define(['angular','app'],function(angular,app){
 		}).when('/user-add',{
 			templateUrl: 'html/user-add.html',
 			controller: 'user-add'
-		}).when('/user-update',{
+		}).when('/user-update/:id',{
 			templateUrl: 'html/user-update.html',
 			controller: 'user-update'
 		}).when('/',{templateUrl:'html/welcome.html'})

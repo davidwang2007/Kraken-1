@@ -22,7 +22,7 @@ define(['angular','services'],function(angular,services){
 					$location.path('user-list');
 				};
 			}])
-			.controller('user-update',['$scope','$routeParams','User',function($scope,$routeParams,User){
+			.controller('user-update',['$scope','$location','$routeParams','User',function($scope,$location,$routeParams,User){
 				$scope.user = User.get({id:$routeParams.id});
 				$scope.doUpdate = function(){
 					$scope.user.$update({id:$routeParams.id});
