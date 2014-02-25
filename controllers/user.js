@@ -34,6 +34,8 @@ module.exports = function(app){
 			//delete the properties start with _
 			key.indexOf('_') === 0 && delete req.body[key];
 		});
+		//mk a fake error to test
+		//return next(new Error('You are not Okay!'));
 		User.findByIdAndUpdate(req.param('id'),req.body,function(err,user){
 			if(err){
 				return next(err);

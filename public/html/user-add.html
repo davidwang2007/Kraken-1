@@ -1,9 +1,9 @@
-<form name="form" class="form-horizontal" role="form" ng-submit="doSave()">
+<form name="form" class="form-horizontal" role="form" ng-submit="doSave()" novalidate>
 	<div class="form-group">
 		<label for="" class="col-sm-2 control-label">USER NAME:</label>
 		<div class="col-sm-4">
 			<input name="username" ng-required="true" ng-model="user.username" 
-				ng-minlength="5" ng-maxlength="50"
+				ng-minlength="5" ng-maxlength="50" autocomplte="off"
 				type="text" class="form-control" placeholder="Please input username"/>
 		</div>
 	</div>
@@ -13,6 +13,7 @@
 			<input name="password" ng-required="true" 
 				ng-model="user.password" type="password" 
 				ng-minlength="5" ng-maxlength="50"
+				autocomplete="off"
 				class="form-control" placeholder="Please input password"/>
 		</div>
 	</div>

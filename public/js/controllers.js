@@ -33,8 +33,13 @@ define(['angular','services'],function(angular,services){
 					$scope.master = angular.copy(user);
 				});
 				$scope.doUpdate = function(){
-					$scope.user.$update({id:$routeParams.id});
-					$location.path('user-list');
+					$scope.user.$update({id:$routeParams.id},function(data){
+						console.debug('update success,',data);	
+						$location.path('user-list');
+					},function(config,data){
+						console.debug('update error',data);	
+					});
+					//$location.path('user-list');
 				};
 				$scope.isUnchanged = function(user){
 					return angular.equals($scope.master,user);	
