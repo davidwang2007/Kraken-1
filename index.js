@@ -51,6 +51,11 @@ app.requestBeforeRoute = function requestBeforeRoute(server) {
 	*/
 	//server.use(express.csrf());
 	//server.use(express.methodOverride());
+	//add XSRF-TOKEN cookie here, rather than the lusca/index.js
+	server.use(function(req,res,next){
+		res.cookie('XSRF-TOKEN',res.locals._csrf);	
+		next();
+	});
 	server.use(language());
 };
 
