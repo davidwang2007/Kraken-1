@@ -3,15 +3,15 @@
  * @author David Wang
  */
 
-define(['angular','services'],function(angular,services){
+define(['angular','services','controller/angular'],function(angular,services){
 	'use strict';
 	/* Controllers */
-	return angular.module('myApp.controllers',['myApp.services','ngResource'])
+	return angular.module('myApp.controllers',['myApp.services','myApp.controller-angular','ngResource'])
 			.controller('user-list',['$scope','version','User',function($scope,version,User){
 				$scope.users = User.query();
 				$scope.deleteUser = function($index){
-					$scope.users[$index].$remove(function(user){
-						console.log(user,'removed');	
+					$scope.users[$index].$remove(function(resp){
+						console.log('user delete '+(resp.result == 0 ? 'success' : 'failed!'));
 						$scope.users.splice($index,1);
 					});
 				};
@@ -19,12 +19,12 @@ define(['angular','services'],function(angular,services){
 			.controller('user-add',['$scope','$location','User',function($scope,$location,User){
 				console.debug('user-add controler initializing..');
 				$scope.doSave = function(){
-					console.log('doSubmit, user = ',$scope.user);
+					//console.log('doSubmit, user = ',$scope.user);
 					new User($scope.user).$save();
 					$location.path('user-list');
 				};		
 				$scope.doBack = function(){
-					console.log('$location.path = ',$location.path());
+					//console.log('$location.path = ',$location.path());
 					$location.path('user-list');
 				};
 			}])
@@ -51,7 +51,7 @@ define(['angular','services'],function(angular,services){
 					$scope.user.$update({id:$routeParams.id});	
 				};
 				$scope.doBack = function(){
-					console.log('$location.path = ',$location.path());
+					//console.log('$location.path = ',$location.path());
 					$location.path('user-list');
 				};
 				$scope.reset = function(){

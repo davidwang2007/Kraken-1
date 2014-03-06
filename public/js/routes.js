@@ -15,6 +15,10 @@ define(['angular','app'],function(angular,app){
 			templateUrl: 'html/user-update.html',
 			controller: 'user-update'
 		}).when('/',{templateUrl:'html/welcome.html'})
+		.when('/angular',{
+			templateUrl: 'html/angular.html',
+			controller: 'angularCtrl'
+		})
 		.otherwise({redirectTo:'/'});	
 	}]);
 

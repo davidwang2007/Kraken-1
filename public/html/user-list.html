@@ -10,8 +10,8 @@
 		<td>{{user.age}}</td>
 		<td>{{user.email}}</td>
 		<td>
-			<a ng-href="#/user-update/{{user._id}}">Modify</a>
-			<a ng-click="deleteUser($index)">Delete</a>
+			<a href="#/user-update/{{user._id}}">Modify</a>
+			<a href="javascript:void(0);" ng-click="deleteUser($index)">Delete</a>
 		</td>
 	</tr>
 </table>

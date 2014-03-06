@@ -4,10 +4,10 @@
  * @email davidwang2006@outlook.com
  */
 
-define(['angular','config','filters','services','controllers','ngRoute','ngResource'],function(angular,config,filters,services,controllers){
+define(['angular','config','filters','directives','services','controllers','ngRoute','ngResource'],function(angular,config,filters,directives,services,controllers){
 	'use strict';
 	//Declare app level module with depends on filters and service
-	return angular.module('myApp',['ngRoute','myApp.config','myApp.controllers','myApp.filters','myApp.services']);
+	return angular.module('myApp',['ngRoute','myApp.config','myApp.controllers','myApp.filters','myApp.directives','myApp.services']);
 });
 
 
