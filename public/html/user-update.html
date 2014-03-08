@@ -7,6 +7,14 @@
 				ng-minlength="2" ng-maxlength="50"
 				type="text" class="form-control" placeholder="Please input username"/>
 		</div>
+		<div class="col-sm-6">
+			<span class="label label-warning" ng-show="form.username.$pristine && form.username.$error.required">
+				PLEASE INPUT USERNAME.	
+			</span>
+			<span class="label label-danger" ng-show="form.username.$dirty && form.username.$invalid">
+				PLEASE INPUT 2~30 CHARACTERS FOR THE USERNAME.	
+			</span>
+		</div>
 	</div>
 	<!--
 	<div class="form-group">
@@ -25,8 +33,20 @@
 		<div class="col-sm-4">
 			<input name="age" ng-required="true" min="18" max="100" 
 				value="user.age"
+				my-integer
 				ng-model="user.age" type="number" class="form-control" 
 				placeholder="Please input the user's age" value="20"/>
+		</div>
+		<div class="col-sm-6">
+			<span class="label label-warning" ng-show="form.age.$pristine && form.age.$error.required">
+				PLEASE INPUT USER'S AGE.	
+			</span>
+			<span class="label label-danger" ng-show="form.age.$error.integer">
+				PLEASE INPUT AN INTEGER NUMBER 
+			</span>
+			<span class="label label-warning" ng-show="form.age.$error.max || form.age.$error.min">
+				USER'S AGE MUST BETWEEN 18 ~ 100	
+			</span>
 		</div>
 	</div>
 	<div class="form-group">
@@ -37,12 +57,20 @@
 				value="user.email"
 				placeholder="Please input the user's email address"/>
 		</div>
+		<div class="col-sm-6">
+			<span class="label label-warning" ng-show="form.email.$error.email">
+				PLEASE INPUT CORRECT EMAIL ADDRESS.
+			</span>
+		</div>
 	</div>
 	<div class="form-group">
 		<div class="col-sm-4 col-sm-offset-2">
 			<input type="submit" ng-disabled="form.$invalid || isUnchanged(user)" class="btn btn-success" value="Submit"/>
 			<input type="button" ng-click="reset()" ng-disabled="isUnchanged(user)" class="btn" value="Reset"/>
+			<!--
 			<input type="button" class="btn btn-warning" value="Back2List" ng-click="doBack()"/>
+			-->
+			<a href="#/user-list" class="btn btn-warning">BACK</a>
 		</div>
 	</div>
 

@@ -1,7 +1,31 @@
+<div class="alert alert-info">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>D.W. Closed Alert Window</strong> Yes <code>Java</code>
+</div>
 <my-customer info="cust">
 </my-customer>
 
 <div>
 	Date Format: <input type="text" ng-model="format"><hr>
 	Current Time is: <span my-current-time="format"></span>
+</div>
+
+<div>
+	<h1>My Dialog Directive</h1>
+	<my-dialog>
+		Hello Dude. I Love <code>AngularJS</code>	
+		My name's {{name}}
+	</my-dialog>
+</div>
+<div>
+	<h2>My Dialog Close</h2>
+	<my-dialog-close ng-hide="dialogIsHidden" on-close="hideDialog()">
+		Hello. My name's {{name}}	
+	</my-dialog>
+</div>
+<div>
+	<h2>my smart float</h2>
+	<form novalidate name="form">
+	<input type="text" name="smart" ng-model="smart" my-smart-float/>
+	</form>
 </div>

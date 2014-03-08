@@ -36,4 +36,4 @@ require(['angular','app','routes','bootstrap','angular-locale'],function(angular
         angular.bootstrap(document,[app['name']]);
     });
 });
-console.log('main.js loaded....');
+require(['dom-ready']);
