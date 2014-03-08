@@ -20,6 +20,9 @@ require.config({
         'ngRoute':['angular'],
         'bootstrap':{
 			deps:["jquery"]
+		},
+		'angular-locale':{
+			deps: ['angular']
 		}
     },
     priority:["angular"]
@@ -28,7 +31,7 @@ require.config({
 window.name = "NG_DEFER_BOOTSTRAP!";
 
 //define('core',['jquery','bootstrap'],function($){return $;});
-require(['angular','app','routes','bootstrap','angular-locale'],function(angular,app,routes){
+require(['angular','app','routes','bootstrap'],function(angular,app,routes){
     'use strict';
     //var $html = angular.element(document.getElementsByTagName('html')[0]);
     angular.element().ready(function() {

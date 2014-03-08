@@ -53,7 +53,7 @@ define(['angular'],function(angular){
 				transclude: true,
 				templateUrl : 'html/my-dialog-close.html',
 				link: function(scope,elements,attrs){
-					console.log('link',arguments);	
+					//console.log('link',arguments);	
 				}
 			};
 		})
@@ -94,5 +94,57 @@ define(['angular'],function(angular){
 				}
 			};
 			
+		})
+		.directive('myTabs',function(){
+			return {
+				restrict: 'E',
+				transclude: true,
+				scope: {},
+				controller: function($scope){
+					var panes = $scope.panes = [];
+					$scope.select = function(pane){
+						angular.forEach(panes,function(pane){
+							pane.selected = false;
+						});
+						pane.selected = true;
+					};
+					this.addPane = function(pane){
+						if(panes.length == 0){
+							$scope.select(pane);
+						}
+						panes.push(pane);
+					};
+					//console.log('myTabs controller',this);
+					//console.log('myTabs $scope',$scope);
+				},
+				templateUrl: 'html/directive/my-tabs.html'
+			};
+		})
+		.directive('myPane',function(){
+			return {
+				restrict: 'E',
+				require: '^myTabs',
+				transclude: true,
+				scope:{
+					title: '@'
+				},
+				link : function($scope,$ele,$attrs,tabsCtrl){
+					tabsCtrl.addPane($scope);
+					//console.log('myPane link $scope = ',$scope);
+					//console.log('myPane tabsCtrl = ',tabsCtrl);
+				},
+				templateUrl: 'html/directive/my-pane.html'
+			};
+		})
+		.directive('myAlert',function(){
+			return {
+				restrict: 'E',
+				transclude: true,
+				scope: {
+					kind: '@',
+					closable: '='
+				},
+				templateUrl: 'html/directive/my-alert.html'
+			};
 		});
 });

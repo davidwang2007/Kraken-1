@@ -19,6 +19,7 @@ define(['angular','app'],function(angular,app){
 			templateUrl: 'html/angular.html',
 			controller: 'angularCtrl'
 		})
+		.when('/tabs',{templateUrl:'html/tabs-pane.html'})
 		.otherwise({redirectTo:'/'});	
 	}]);
 
