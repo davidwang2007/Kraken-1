@@ -2,3 +2,6 @@
 body{
 	padding-top:70px;
 }
+body, input, select, textarea, button {
+	font-family: DFLiHei, "华康丽黑", "Microsoft JhengHei", "微软正黑体", sans-serif;
+}

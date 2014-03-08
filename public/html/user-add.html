@@ -67,11 +67,11 @@
 	<div class="form-group">
 		<div class="col-sm-4 col-sm-offset-2">
 			<input type="submit" ng-disabled="form.$invalid" class="btn btn-success" value="Submit"/>
-			<input type="reset" class="btn" value="Reset"/>
+			<input type="reset" ng-disabled="form.$pristine" class="btn btn-warning" value="Reset"/>
 			<!--
 			<input type="button" class="btn btn-warning" value="Back2List" ng-click="doBack()"/>
 			-->
-			<a href="#/user-list" class="btn btn-warning">BACK</a>
+			<a href="#/user-list" class="btn btn-info">BACK</a>
 		</div>
 	</div>
 
