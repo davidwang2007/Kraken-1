@@ -146,5 +146,38 @@ define(['angular'],function(angular){
 				},
 				templateUrl: 'html/directive/my-alert.html'
 			};
+		})
+		.directive('myDraggable',function($document){
+			return function($scope,$element,$attrs){
+				var startX = 0, startY = 0, x = 0, y = 0;
+				$element.css({
+					border: '1px solid red',
+					display: 'inline-block',
+					padding: '5px',
+					position: 'relative',
+					cursor: 'pointer'
+				});
+				$element.on('mousedown',function(evt){
+					//prevent default dragging of selectd content
+					evt.preventDefault();
+					startX = evt.pageX - x;
+					startY = evt.pageY - y;
+					$document.on('mousemove',mousemove);
+					$document.on('mouseup',mouseup);
+
+				});
+				function mousemove(evt){
+					x = evt.pageX - startX;
+					y = evt.pageY - startY;
+					$element.css({
+						top: y+'px',
+						left: x+'px'
+					});
+				}
+				function mouseup(){
+					$document.unbind('mousemove',mousemove);
+					$document.unbind('mouseup',mouseup);
+				}
+			};		
 		});
 });
